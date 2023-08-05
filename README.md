@@ -1,5 +1,5 @@
-# Student-Data-Collection
-This repository contains a simple HTML form to collect data from students. The form is designed to be used by Aditya's Classes. The form is created with HTML and includes jQuery to validate the form fields. It also contains a webcam image capturing page along with data table of 1 Lakh People.
+This repository contains a simple HTML form to collect data from students. The form is designed to be used by Aditya's Classes. The form is created with HTML and includes jQuery to validate the form fields.
+It also contains a webcam image capturing page along with data table of 1 Lakh People.
 
 Getting Started:
 
@@ -9,7 +9,11 @@ Form Fields:
 
 The form includes the following fields:
 
-Name, Address, Email, Phone Number, Gender.
+Name,
+ Address,
+ Email,
+ Phone Number,
+ Gender.
 
 All fields are required, and the form will not submit unless all fields are filled in.
 
@@ -25,6 +29,7 @@ Styling:
 
 The form is styled using CSS. The form elements are centered on the page, and the form itself is contained within a border. The page background is an image that covers the entire background.
 
+
 Author:
 
-This project was created by Medha.
+This project was created by Adarsh.

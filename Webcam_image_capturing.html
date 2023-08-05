@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Webcam Capture</title>
+    <style>
+        /* Styling for the header */
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 36px;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Styling for the video element */
+        #video {
+            display: block;
+            margin: 50px auto;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Styling for the capture button */
+        #capture {
+            display: block;
+            margin: 30px auto;
+            padding: 10px 20px;
+            font-size: 24px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Styling for the canvas element */
+        #canvas {
+            display: none;
+        }
+
+        /* Styling for the captured image element */
+        #captured {
+            display: block;
+            margin: 50px auto;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header text -->
+    <h1>Webcam Capture Example</h1>
+    <!-- Video element for displaying the user's webcam feed -->
+    <video id="video" width="640" height="480" autoplay></video>
+    <!-- Button for capturing an image from the video feed -->
+    <button id="capture">Capture</button>
+    <!-- Canvas element for rendering the captured image -->
+    <canvas id="canvas" width="640" height="480"></canvas>
+    <!-- Image element for displaying the captured image -->
+    <img id="captured" width="640" height="480">
+    <script>
+        // Get the video element
+        var video = document.getElementById('video');
+
+        // Try to connect to the user's webcam
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+                // Display the video stream in the video element
+                video.srcObject = stream;
+            });
+        }
+
+        // Get the canvas element
+        var canvas = document.getElementById('canvas');
+
+        // Get the captured image element
+        var capturedImg = document.getElementById('captured');
+
+        // Get the capture button
+        var captureBtn = document.getElementById('capture');
+
+        // Add a click event listener to the capture button
+        captureBtn.addEventListener('click', function () {
+            // Draw the current video frame on the canvas
+            canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            // Get the captured image data as a base64 encoded string
+            var imageData = canvas.toDataURL('image/png');
+
+            // Set the captured image as the src of the image element
+            capturedImg.src = imageData;
+
+            // Show the captured image element
+            capturedImg.style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!-- This is an HTML document -->
+<!DOCTYPE html>
+<!-- Start of the head section -->
+<head>
+	<!-- Title of the document -->
+	<title>jQuery DataTable Example</title>
+    <!-- Link to the CSS file for the DataTable plugin -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+
+<!-- Link to the jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Link to the DataTable plugin script -->
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+
+<!-- Start of the script section -->
+<script>
+	$(document).ready(function() {
+		// Create an array of 1 million records
+		var data = [];
+		for (var i = 0; i < 1000000; i++) {
+			data.push([i+1, 'Record ' + (i+1)]);
+		}
+
+		// Initialize the DataTable
+		$('#example').DataTable({
+			data: data,
+			columns: [
+				{ title: "ID" },
+				{ title: "Record" }
+			]
+		});
+	});
+</script>
+<!-- End of the script section -->
+</head>
+<!-- End of the head section -->
+<!-- Start of the body section -->
+<body>
+	<!-- A table element with an ID of "example" and a class of "display" -->
+	<table id="example" class="display" style="width:100%">
+		<!-- Table header -->
+		<thead>
+			<tr>
+				<!-- Table header cell with the text "ID" -->
+				<th>ID</th>
+				<!-- Table header cell with the text "Record" -->
+				<th>Record</th>
+			</tr>
+		</thead>
+	</table>
+</body>
+<!-- End of the body section -->
+<!-- End of the HTML document -->
+
+
+
